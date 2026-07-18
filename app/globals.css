@@ -8,3 +8,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 .contact-card{max-width:820px;text-align:center}.contact-card>p:not(.eyebrow){max-width:650px;margin:18px auto;color:var(--muted);font-size:17px}.contact-card .email-link{display:block;margin-top:24px}
+
+.consulting-section .consulting-grid article{background:#fff;border-color:var(--line);box-shadow:0 8px 28px rgba(11,35,65,.05)}.consulting-section .consulting-grid article>span{color:var(--orange)}.consulting-section .consulting-grid h3{color:var(--navy)}.consulting-section .consulting-grid p,.consulting-section .consulting-grid li{color:var(--muted)}.consulting-section .consulting-grid ul{border-color:var(--line)}
