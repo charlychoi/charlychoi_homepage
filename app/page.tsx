@@ -1,7 +1,7 @@
 const services = [
-  { icon: "01", title: "기업·공공기관 AI 활용 교육", text: "생성형 AI와 Gemini를 실제 업무에 적용하는 방법을 조직 수준과 직무에 맞춰 교육합니다.", bullets: ["ChatGPT·Gemini 업무 활용", "문서 작성·요약·분석", "Google Workspace와 AI 활용"], cta: "강의 문의", type: "기업·기관 AI 강의" },
+  { icon: "01", title: "기업·공공기관 AI 활용 교육", text: "생성형 AI와 Gemini를 실제 업무에 적용하는 방법을 조직 수준과 직무에 맞춰 교육합니다.", bullets: ["ChatGPT, Claude, Gemini, Grok AI 업무 활용", "슬라이드, 이미지, 유튜브 롱폼, 숏폼 영상 생성", "Google Workspace와 AI 활용"], cta: "강의 문의", type: "기업·기관 AI 강의" },
   { icon: "02", title: "중장년·시니어 AI 교육", text: "AI가 낯선 학습자도 따라올 수 있도록 쉬운 설명, 반복 실습, 생활 사례 중심으로 진행합니다.", bullets: ["생성형 AI 기초", "스마트폰·PC 실습", "글쓰기·검색·콘텐츠 제작"], cta: "교육 문의", type: "중장년·시니어 AI 교육" },
-  { icon: "03", title: "AX·AI Agent 컨설팅", text: "반복 업무와 고객 접점을 진단해 AI 자동화와 AI Agent 적용 방안을 설계합니다.", bullets: ["업무 프로세스 진단", "Hermes/OpenClaw 에이전트 활용", "AI Agent·RAG PoC", "n8n·Workspace 자동화"], cta: "상담 요청", type: "AX·AI Agent 컨설팅" },
+  { icon: "03", title: "AX·AI Agent 컨설팅", text: "반복 업무와 고객 접점을 진단해 AI 자동화와 AI Agent 적용 방안을 설계합니다.", bullets: ["업무 프로세스 진단", "Hermes/OpenClaw 에이전트 활용", "사내 규정/지식/FAQ RAG AI 챗봇", "n8n·Workspace 자동화"], cta: "상담 요청", type: "AX·AI Agent 컨설팅" },
 ];
 
 const lectures = [

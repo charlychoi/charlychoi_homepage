@@ -22,6 +22,9 @@ test("server-renders the conversion landing page", async () => {
   assert.match(html, /AI Agent·업무 자동화 PoC/);
   assert.match(html, /자주 묻는 질문/);
   assert.match(html, /ChatGPT·Gemini·Claude·Grok AI 핵심 기능/);
+  assert.match(html, /ChatGPT, Claude, Gemini, Grok AI 업무 활용/);
+  assert.match(html, /슬라이드, 이미지, 유튜브 롱폼, 숏폼 영상 생성/);
+  assert.match(html, /사내 규정\/지식\/FAQ RAG AI 챗봇/);
   assert.doesNotMatch(html, /이메일로 문의하기/);
   assert.match(html, /Hermes\/OpenClaw 에이전트 활용/);
   assert.match(html, /Hermes\/OpenClaw Agent 활용/);
