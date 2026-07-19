@@ -49,17 +49,17 @@ const faqs = [
 const nav = [["소개", "intro"], ["주요 서비스", "services"], ["강의 프로그램", "programs"], ["컨설팅", "consulting"], ["프로젝트", "projects"], ["경력·저서", "career"], ["FAQ", "faq"]];
 
 export default function Home() {
-  const [fontScale, setFontScale] = useState(1);
+  const [fontScale, setFontScale] = useState(1.15);
   useEffect(() => {
-    const saved = Number(window.localStorage.getItem("charly-font-scale"));
-    if (saved >= 0.9 && saved <= 1.25) setFontScale(saved);
+    const saved = Number(window.localStorage.getItem("charly-font-scale-v2"));
+    if (saved >= 1 && saved <= 1.5) setFontScale(saved);
   }, []);
   useEffect(() => {
     document.documentElement.style.setProperty("--font-scale", String(fontScale));
-    window.localStorage.setItem("charly-font-scale", String(fontScale));
+    window.localStorage.setItem("charly-font-scale-v2", String(fontScale));
   }, [fontScale]);
-  const decreaseFont = () => setFontScale((current) => Math.max(0.9, Number((current - 0.05).toFixed(2))));
-  const increaseFont = () => setFontScale((current) => Math.min(1.25, Number((current + 0.05).toFixed(2))));
+  const decreaseFont = () => setFontScale((current) => Math.max(1, Number((current - 0.1).toFixed(2))));
+  const increaseFont = () => setFontScale((current) => Math.min(1.5, Number((current + 0.1).toFixed(2))));
   return <>
     <header className="topbar">
       <div className="container nav-wrap">
@@ -67,9 +67,9 @@ export default function Home() {
         <nav className="desktop-nav" aria-label="주요 메뉴">{nav.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
         <a className="nav-cta" href="#contact">문의하기</a>
         <div className="font-controls" aria-label="전체 글자 크기 조절">
-          <button type="button" onClick={decreaseFont} aria-label="글자 크기 줄이기" disabled={fontScale <= 0.9}>−</button>
+          <button type="button" onClick={decreaseFont} aria-label="글자 크기 줄이기" disabled={fontScale <= 1}>−</button>
           <span aria-live="polite">글자 {Math.round(fontScale * 100)}%</span>
-          <button type="button" onClick={increaseFont} aria-label="글자 크기 키우기" disabled={fontScale >= 1.25}>＋</button>
+          <button type="button" onClick={increaseFont} aria-label="글자 크기 키우기" disabled={fontScale >= 1.5}>＋</button>
         </div>
         <details className="mobile-nav"><summary aria-label="메뉴 열기"><span></span><span></span><span></span></summary><nav>{nav.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}<a href="#contact">문의하기</a></nav></details>
       </div>
