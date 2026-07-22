@@ -22,10 +22,12 @@ const consulting = [
 ];
 
 const projects = [
-  ["AX 현장 컨설팅 분석 도구", "중소기업 현장 자료에서 핵심 이슈와 실행 과제를 찾는 어려움", "AI 분석과 컨설팅 보고서 작성을 지원하는 웹앱", "AX 진단·실행 과제 설계", "AI ANALYSIS · REPORT", "https://ax-consulting-beta.vercel.app", "서비스 보기"],
-  ["디지털센터 운영 예측 대시보드", "센터별 방문자·혼잡도·교육 참석 예측의 어려움", "Google TimesFM으로 운영 데이터를 예측·시각화", "인력과 프로그램 운영 의사결정", "TIMESFM · FORECAST", "https://github.com/charlychoi/timesfm-didongpul", "GitHub"],
+  ["AX 현장 컨설팅 분석 도구", "중소기업 현장 자료에서 핵심 이슈와 실행 과제를 찾는 어려움", "AI 분석과 컨설팅 보고서 작성을 지원하는 웹앱", "AX 진단·실행 과제 설계", "AI ANALYSIS · REPORT", "https://github.com/charlychoi/ax-consulting", "GitHub"],
+  ["TimesFM 암호화폐 가격 예측 웹앱", "BTC·ETH·XRP 가격 흐름을 참고용으로 예측하기 어려움", "Google TimesFM 2.5 Zero-Shot과 CoinGecko 데이터를 활용해 1·7·14·30일 가격을 예측·시각화", "암호화폐 시장 흐름 참고와 예측 모델 실험", "TIMESFM · CRYPTO FORECAST", "https://github.com/charlychoi/timesfm-forcase", "GitHub"],
   ["AI 에이전트 운영·모니터링 도구", "에이전트 작업 상태와 운영 흐름 파악의 어려움", "작업 상태를 확인하고 흐름을 실험하는 UI", "AI Agent 교육·PoC 설계", "AI AGENT · MONITORING", "https://github.com/CharlyChoiStory/hermesUI", "GitHub"],
   ["사내 규정 RAG 챗봇", "방대한 규정에서 근거 조항을 빠르게 찾기 어려움", "자연어 검색과 출처 기반 답변을 제공하는 챗봇 PoC", "사내 지식 검색·안전 응답", "RAG · CHATBOT", "https://github.com/charlychoi/internal-policy-rag-chatbot", "GitHub"],
+  ["사회적기업 공고·나라장터 모니터링", "사회적기업 관련 공고와 나라장터 정보를 놓치기 쉬움", "공고와 입찰 정보를 자동으로 수집·모니터링하는 도구", "지원사업·조달 기회 탐색과 운영 정보 확인", "MONITORING · PUBLIC DATA", "https://github.com/CharlyChoiStory/monitoring", "GitHub"],
+  ["Make.com G2B → Google Sheets 데모 문서", "나라장터(G2B) 정보를 수집해 시트로 정리하는 흐름을 빠르게 검증하기 어려움", "Make.com을 활용해 G2B 데이터를 Google Sheets로 연결하는 자동화 데모 문서", "공고 수집·정리 자동화 워크플로 실험", "MAKE.COM · G2B AUTOMATION", "https://github.com/CharlyChoiStory/monitoring", "GitHub"],
 ];
 
 const moreProjects = [
