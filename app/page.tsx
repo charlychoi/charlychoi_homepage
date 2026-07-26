@@ -17,7 +17,7 @@ const lectures = [
 
 const consulting = [
   ["AI 활용 사전 진단", "현재 업무와 데이터 활용 수준을 점검하고 AI 적용 과제와 우선순위를 도출합니다.", ["현황·페인포인트 진단", "AI 적용 후보 과제", "단기·중기 로드맵"]],
-  ["AI Agent·업무 자동화 PoC", "반복 업무를 줄이기 위한 AI Agent 또는 자동화 시제품을 제작합니다.", ["반복업무 자동화", "Hermes/OpenClaw Agent 활용", "상담 챗봇·보고서 자동화", "업무 자동화", "온라인 마케팅 AI 진단"]],
+  ["AI Agent·업무 자동화 PoC", "반복 업무를 줄이기 위한 AI Agent 또는 자동화 시제품을 제작합니다.", ["반복 업무 자동화", "Hermes/OpenClaw Agent 활용", "상담 챗봇·보고서 자동화", "온라인 마케팅 AI 진단"]],
   ["AI 교육체계 설계", "기관의 대상과 수준에 맞는 AI 교육과정과 실습 프로그램을 설계합니다.", ["임직원 AI 리터러시", "부서별 실무 교육", "비개발자 바이브코딩"]],
 ];
 
@@ -49,6 +49,13 @@ const faqs = [
 ];
 
 const nav = [["소개", "intro"], ["주요 서비스", "services"], ["강의 프로그램", "programs"], ["컨설팅", "consulting"], ["프로젝트", "projects"], ["경력·저서", "career"], ["FAQ", "faq"]];
+
+const audiences = [
+  ["기업·기관 교육 담당자", "직원 생성형 AI 교육을 어디서부터 시작할지 고민하는 조직"],
+  ["공공기관·복지기관", "중장년·시니어·소상공인에게 실용적인 AI 교육이 필요한 기관"],
+  ["중소기업 지원기관", "반복 업무와 고객 대응·콘텐츠 업무를 AI로 개선하려는 조직"],
+  ["AI 전환 준비 조직", "거창한 구축보다 작은 PoC부터 빠르게 검증하고 싶은 조직"],
+];
 
 export default function Home() {
   const [fontScale, setFontScale] = useState(1.15);
@@ -90,7 +97,7 @@ export default function Home() {
 
       <Section id="services" eyebrow="Core Services" title="조직의 AI 활용을 실행으로 연결합니다" intro="교육에서 작은 PoC까지, 지금 필요한 범위부터 구체적으로 시작합니다."><div className="card-grid three">{services.map(s => <article className="service-card" key={s.title}><span className="number">{s.icon}</span><h3>{s.title}</h3><p>{s.text}</p><ul>{s.bullets.map(b => <li key={b}>{b}</li>)}</ul><a href="#contact" className="card-link">{s.cta} →</a></article>)}</div><div className="capabilities" aria-label="보조 역량">{["바이브코딩", "Google Workspace·Gemini", "AI 글쓰기·출판", "AI Agent·RAG", "업무 자동화", "데이터 분석·예측"].map(x => <span key={x}>{x}</span>)}</div></Section>
 
-      <Section className="soft" eyebrow="For Teams" title="이런 기관에 적합합니다" intro="처음 시작하는 조직부터 실제 전환 과제를 검증하려는 조직까지 함께합니다."><div className="card-grid four audience">{[["기업·기관 교육 담당자", "직원 생성형 AI 교육을 어디서부터 시작할지 고민하는 조직"], ["공공기관·복지기관", "중장년·시니어·소상공인에게 실용적인 AI 교육이 필요한 기관"], ["중소기업 지원기관", "반복 업무와 고객 대응·콘텐츠 업무를 AI로 개선하려는 조직"], ["AI 전환 준비 조직", "거창한 구축보다 작은 PoC부터 빠르게 검증하고 싶은 조직"]].map(([a,b], i) => <article key={a}><span>0{i+1}</span><h3>{a}</h3><p>{b}</p></article>)}</div></Section>
+      <Section className="soft" eyebrow="For Teams" title="이런 기관에 적합합니다" intro="처음 시작하는 조직부터 실제 전환 과제를 검증하려는 조직까지 함께합니다."><ul className="audience-list">{audiences.map(([a,b]) => <li key={a}><CheckIcon/><div><h3>{a}</h3><p>{b}</p></div></li>)}</ul></Section>
 
       <Section id="programs" eyebrow="Lecture Programs" title="목적과 대상이 분명한 대표 강의" intro="기관의 상황에 맞춰 시간, 난이도, 실습 범위를 조정합니다."><div className="program-grid">{lectures.map((x,i) => <article className="program-card" key={x[0]}><div className="program-head"><span>PROGRAM {String(i+1).padStart(2,"0")}</span><h3>{x[0]}</h3></div><dl><div><dt>시간</dt><dd>{x[1]}</dd></div><div><dt>대상</dt><dd>{x[2]}</dd></div><div><dt>내용</dt><dd>{x[3]}</dd></div><div><dt>방식</dt><dd>{x[4]}</dd></div></dl><a href="#contact">{x[5]} →</a></article>)}</div></Section>
 
@@ -115,4 +122,5 @@ export default function Home() {
 }
 
 function Section({ id, className="", eyebrow, title, intro, children }: { id?: string; className?: string; eyebrow: string; title: string; intro?: string; children: React.ReactNode }) { return <section id={id} className={`section ${className}`}><div className="container"><header className="section-head"><p className="eyebrow">{eyebrow}</p><h2>{title}</h2>{intro && <p>{intro}</p>}</header>{children}</div></section> }
+function CheckIcon() { return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> }
 function Book({lang,title,text,audience,href}:{lang:string;title:string;text:string;audience:string;href:string}) { return <a className="book" href={href} target="_blank" rel="noopener noreferrer"><span>{lang}</span><h3>{title}</h3><p>{text}</p><small><b>추천</b> {audience}</small><i>도서 보기 ↗</i></a> }
