@@ -17,7 +17,7 @@ const lectures = [
 
 const consulting = [
   ["AI 활용 사전 진단", "현재 업무와 데이터 활용 수준을 점검하고 AI 적용 과제와 우선순위를 도출합니다.", ["현황·페인포인트 진단", "AI 적용 후보 과제", "단기·중기 로드맵"]],
-  ["AI Agent·업무 자동화 PoC", "반복 업무를 줄이기 위한 AI Agent 또는 자동화 시제품을 제작합니다.", ["반복업무 자동화", "Hermes/OpenClaw Agent 활용", "상담 챗봇·보고서 자동화", "업무 자동화", "온라인 마케팅 AI 진단"]],
+  ["AI Agent·업무 자동화 PoC", "반복 업무를 줄이기 위한 AI Agent 또는 자동화 시제품을 제작합니다.", ["반복 업무 자동화", "Hermes/OpenClaw Agent 활용", "상담 챗봇·보고서 자동화", "온라인 마케팅 AI 진단"]],
   ["AI 교육체계 설계", "기관의 대상과 수준에 맞는 AI 교육과정과 실습 프로그램을 설계합니다.", ["임직원 AI 리터러시", "부서별 실무 교육", "비개발자 바이브코딩"]],
 ];
 
@@ -49,6 +49,13 @@ const faqs = [
 ];
 
 const nav = [["소개", "intro"], ["주요 서비스", "services"], ["강의 프로그램", "programs"], ["컨설팅", "consulting"], ["프로젝트", "projects"], ["경력·저서", "career"], ["FAQ", "faq"]];
+
+const audiences = [
+  ["기업·기관 교육 담당자", "직원 생성형 AI 교육을 어디서부터 시작할지 고민하는 조직"],
+  ["공공기관·복지기관", "중장년·시니어·소상공인에게 실용적인 AI 교육이 필요한 기관"],
+  ["중소기업 지원기관", "반복 업무와 고객 대응·콘텐츠 업무를 AI로 개선하려는 조직"],
+  ["AI 전환 준비 조직", "거창한 구축보다 작은 PoC부터 빠르게 검증하고 싶은 조직"],
+];
 
 export default function Home() {
   const [fontScale, setFontScale] = useState(1.15);
@@ -90,7 +97,7 @@ export default function Home() {
 
       <Section id="services" eyebrow="Core Services" title="조직의 AI 활용을 실행으로 연결합니다" intro="교육에서 작은 PoC까지, 지금 필요한 범위부터 구체적으로 시작합니다."><div className="card-grid three">{services.map(s => <article className="service-card" key={s.title}><span className="number">{s.icon}</span><h3>{s.title}</h3><p>{s.text}</p><ul>{s.bullets.map(b => <li key={b}>{b}</li>)}</ul><a href="#contact" className="card-link">{s.cta} →</a></article>)}</div><div className="capabilities" aria-label="보조 역량">{["바이브코딩", "Google Workspace·Gemini", "AI 글쓰기·출판", "AI Agent·RAG", "업무 자동화", "데이터 분석·예측"].map(x => <span key={x}>{x}</span>)}</div></Section>
 
-      <Section className="soft" eyebrow="For Teams" title="이런 기관에 적합합니다" intro="처음 시작하는 조직부터 실제 전환 과제를 검증하려는 조직까지 함께합니다."><div className="card-grid four audience">{[["기업·기관 교육 담당자", "직원 생성형 AI 교육을 어디서부터 시작할지 고민하는 조직"], ["공공기관·복지기관", "중장년·시니어·소상공인에게 실용적인 AI 교육이 필요한 기관"], ["중소기업 지원기관", "반복 업무와 고객 대응·콘텐츠 업무를 AI로 개선하려는 조직"], ["AI 전환 준비 조직", "거창한 구축보다 작은 PoC부터 빠르게 검증하고 싶은 조직"]].map(([a,b], i) => <article key={a}><span>0{i+1}</span><h3>{a}</h3><p>{b}</p></article>)}</div></Section>
+      <Section className="soft" eyebrow="For Teams" title="이런 기관에 적합합니다" intro="처음 시작하는 조직부터 실제 전환 과제를 검증하려는 조직까지 함께합니다."><ul className="audience-list">{audiences.map(([a,b]) => <li key={a}><CheckIcon/><div><h3>{a}</h3><p>{b}</p></div></li>)}</ul></Section>
 
       <Section id="programs" eyebrow="Lecture Programs" title="목적과 대상이 분명한 대표 강의" intro="기관의 상황에 맞춰 시간, 난이도, 실습 범위를 조정합니다."><div className="program-grid">{lectures.map((x,i) => <article className="program-card" key={x[0]}><div className="program-head"><span>PROGRAM {String(i+1).padStart(2,"0")}</span><h3>{x[0]}</h3></div><dl><div><dt>시간</dt><dd>{x[1]}</dd></div><div><dt>대상</dt><dd>{x[2]}</dd></div><div><dt>내용</dt><dd>{x[3]}</dd></div><div><dt>방식</dt><dd>{x[4]}</dd></div></dl><a href="#contact">{x[5]} →</a></article>)}</div></Section>
 
@@ -100,7 +107,7 @@ export default function Home() {
 
       <Section className="soft" eyebrow="Why Charly Choi" title="찰리초이를 선택해야 하는 이유"><div className="reason-grid">{[["기술을 쉽게 설명합니다", "복잡한 AI 기술을 전문 용어가 아닌 일과 생활의 사례로 이해할 수 있게 전달합니다."], ["직접 만들어 본 경험이 있습니다", "AI Agent, RAG, 자동화, 예측 웹앱을 직접 기획하고 제작한 경험을 교육에 반영합니다."], ["교육과 현장을 연결합니다", "기능 설명에서 끝나지 않고 수강자가 자신의 업무에 적용하도록 안내합니다."], ["중장년의 눈높이를 이해합니다", "빠르게 넘어가기보다 천천히 반복하며 실제 결과를 만들도록 돕습니다."]].map(([a,b],i) => <article key={a}><span>{String(i+1).padStart(2,"0")}</span><h3>{a}</h3><p>{b}</p></article>)}</div></Section>
 
-      <Section id="career" eyebrow="Experience & Books" title="경험을 지식으로, 지식을 현장으로" intro="IT 현장, 조직 교육, AI 도구 개발과 저술의 경험이 하나의 실행형 프로그램으로 연결됩니다."><div className="career-layout"><div className="career-list">{[["IT 교육·컨설팅 전문가", "30년+", "IT 교육과 업무 도구 컨설팅 경험으로 디지털 전환과 역량 강화를 지원합니다."], ["Google Workspace·Gemini", "교육 및 컨설팅", "조직 생산성 도구를 실제 업무 시나리오에 맞춰 안내합니다."], ["상상우리 AI 강사", "AI 활용 컨설턴트", "기업·기관과 중장년을 위한 AI 교육·컨설팅 프로그램을 제공합니다."], ["AI 전문 작가", "국내외 13권+", "AI, 글쓰기, 생산성 분야의 실용 지식을 한국어·영어·일본어로 전합니다."]].map(x => <article key={x[0]}><span>{x[1]}</span><h3>{x[0]}</h3><p>{x[2]}</p></article>)}</div><div className="books"><Book lang="한국어 · 국내 출판" title="클로드 AI 글쓰기" text="생성형 AI로 아이디어를 정리하고 글을 기획·작성·수정하는 실전 방법" audience="작가·강사·콘텐츠 제작자·입문자" href="https://www.yes24.com/product/goods/130768170"/><Book lang="영어 · Amazon KDP" title="Write and Publish with GPT-5.5" text="저자와 전문가를 위한 AI 글쓰기·출판 워크플로" audience="저자·블로거·컨설턴트" href="https://www.amazon.com/author/charlychoi"/><Book lang="일본어 · Amazon KDP" title="Perplexity AIの業務活用 完全制覇" text="Perplexity AI를 조사와 실무에 활용하는 방법" audience="업무 활용자·AI 입문자" href="https://www.amazon.com/author/charlychoi"/></div></div></Section>
+      <Section id="career" eyebrow="Experience & Books" title="경험을 지식으로, 지식을 현장으로" intro="IT 현장, 조직 교육, AI 도구 개발과 저술의 경험이 하나의 실행형 프로그램으로 연결됩니다."><div className="career-layout"><div className="career-list">{[["IT 교육·컨설팅 전문가", "30년+", "IT 교육과 업무 도구 컨설팅 경험으로 디지털 전환과 역량 강화를 지원합니다."], ["Google Workspace·Gemini", "교육 및 컨설팅", "조직 생산성 도구를 실제 업무 시나리오에 맞춰 안내합니다."], ["상상우리 AI 강사", "AI 활용 컨설턴트", "기업·기관과 중장년을 위한 AI 교육·컨설팅 프로그램을 제공합니다."], ["AI 전문 작가", "국내외 13권+", "AI, 글쓰기, 생산성 분야의 실용 지식을 한국어·영어·일본어로 전합니다."]].map(x => <article key={x[0]}><span>{x[1]}</span><h3>{x[0]}</h3><p>{x[2]}</p></article>)}</div><div className="books"><Book lang="한국어 · 국내 출판" title="클로드 AI 글쓰기" text="생성형 AI로 아이디어를 정리하고 글을 기획·작성·수정하는 실전 방법" audience="작가·강사·콘텐츠 제작자·입문자" href="https://www.yes24.com/product/goods/130768170"/><Book lang="영어 · Amazon KDP" title="Write and Publish with GPT-5.5" text="저자와 전문가를 위한 AI 글쓰기·출판 워크플로" audience="저자·블로거·컨설턴트" href="https://www.amazon.com/author/charlychoi"/><Book lang="한국어 · 국내 출판" title="AI DEEP RESEARCH 완전정복" text="AI에게 제대로 심층 리서치 시키는 법, 숨겨진 패턴을 찾는 2단계 심층 분석 가이드" audience="리서치 활용자·AI 입문자" href="https://www.yes24.com/product/goods/146140506"/></div></div></Section>
 
       <Section className="process-section" eyebrow="How We Work" title="강의·컨설팅 진행 절차"><div className="process">{[["문의", "대상, 목적, 일정, 인원과 희망 주제를 전달합니다."], ["사전 협의", "통화 또는 온라인 미팅으로 현재 상황과 필요한 결과를 확인합니다."], ["맞춤 설계", "대상과 수준에 맞춰 교육, 실습과 컨설팅 범위를 구성합니다."], ["실행·후속 지원", "교육 또는 컨설팅 후 필요한 자료와 실행안을 제공합니다."]].map((x,i) => <article key={x[0]}><span>{i+1}</span><h3>{x[0]}</h3><p>{x[1]}</p></article>)}</div></Section>
 
@@ -115,4 +122,5 @@ export default function Home() {
 }
 
 function Section({ id, className="", eyebrow, title, intro, children }: { id?: string; className?: string; eyebrow: string; title: string; intro?: string; children: React.ReactNode }) { return <section id={id} className={`section ${className}`}><div className="container"><header className="section-head"><p className="eyebrow">{eyebrow}</p><h2>{title}</h2>{intro && <p>{intro}</p>}</header>{children}</div></section> }
+function CheckIcon() { return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> }
 function Book({lang,title,text,audience,href}:{lang:string;title:string;text:string;audience:string;href:string}) { return <a className="book" href={href} target="_blank" rel="noopener noreferrer"><span>{lang}</span><h3>{title}</h3><p>{text}</p><small><b>추천</b> {audience}</small><i>도서 보기 ↗</i></a> }
